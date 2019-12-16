@@ -118,27 +118,15 @@ h1, h2, h3, h4, h5{
   float: left;
 }
 
-<<<<<<< HEAD:src/tchat/views/index.scss
 #chat {
   position: relative;
-  max-height: 90%;
-=======
-#menu {
-  min-height: 10%;
-  border-bottom: 1px solid #e3e1e1;
-  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, .10);
-}
-
-#chat {
-  height: 80%;
->>>>>>> parent of ce8d619... :Add Photo active talking user, name, active class on list chat:src/index.scss
+  height: 90%;
 }
 
 #message{
   min-height: 10%;
 }
 
-<<<<<<< HEAD:src/tchat/views/index.scss
 #messageForm {
   width: 80%;
   margin: 0 auto;
@@ -186,5 +174,3 @@ h1, h2, h3, h4, h5{
   height: 50px;
   border-radius: 50%;
 }
-=======
->>>>>>> parent of ce8d619... :Add Photo active talking user, name, active class on list chat:src/index.scss
