@@ -1,33 +1,133 @@
+<!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Chat Bot I0</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" type="text/css" rel="stylesheet">
+    <title>Naj Bot </title>
 </head>
-<body>
-    <div id="app">
-        <div id="main">
-            <div id="left">
-                <div id="personnal">
-                    
-                </div>
-                <div id="users">
 
-                </div>
-            </div>
-            <div id="right">
-                <div id="chat">
-                    
-                </div>
-                <div id="message">
-                    <form id="messageForm">
-                        <textarea id="messageArea" name="message"></textarea>
-                        <button id='send'>Go</button>
-                    </form>
-                </div>
-            </div>
-        </div>
+<body>
+    <div class="d-flex" id="wrapper">
+      	<!-- Sidebar -->
+		<div class="bg-black border-right" id="sidebar-wrapper">
+			<div class="sidebar-heading text-color border-bottom">Naj Bot</div>
+			<div class="list-group list-group-flush" id="bot_list"> </div>
+		</div>
+		<!-- /#sidebar-wrapper -->
+
+      	<!-- Page Content -->
+      	<div id="page-content-wrapper" class="bg-black">
+
+			<nav class="navbar navbar-expand-lg navbar-light bg-black border-bottom">
+				<button class="btn btn-yellow" id="menu-toggle">listen bots</button>
+
+				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+
+				<div class="collapse navbar-collapse" id="navbarSupportedContent">
+					<ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+						<li class="nav-item dropdown keep-inside-clicks-open">
+							<a class="nav-link dropdown-toggle " href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Menu</a>
+							<div class="dropdown-menu dropdown-menu-right pl-2 pt-3" aria-labelledby="navbarDropdown">
+								<div class="theme-switch-wrapper">
+									<label class="theme-switch mr-2" for="checkbox">
+										<input type="checkbox" id="checkbox" />
+										<div class="slider round"></div>
+									</label>
+									<span>Thème</span>
+								</div>
+							</div>
+						</li>
+					</ul>
+				</div>
+			</nav>
+
+			<div class="container-fluid pt-3">
+				<div class="mesgs">
+					<div class="text-center pb-5">
+						<span class="text-muted font-italic">first tchat</span>
+					</div>
+
+					<div class="msg_history"> </div>
+
+					<div class="type_msg border-top">
+						<form action="" method="POST">
+							<div class="input_msg_write">
+								<input type="text" class="write_msg" placeholder="Type a message" />
+								<button class="msg_send_btn" id="send_message"><i class="fa fa-paper-plane-o" aria-hidden="true"></i></button>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- /#page-content-wrapper -->
+
     </div>
-</body>
+    <!-- /#wrapper -->
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.js"></script>
+	<script>
+	  var socket = io('http://127.0.0.1:8000');
+	  socket.on('connect', function(){});
+	  socket.on('event', function(data){});
+	</script>
+
+    <!-- Menu Toggle Script -->
+    <script>
+		$("#menu-toggle").click(function(e) {
+			e.preventDefault();
+			$("#wrapper").toggleClass("toggled");
+		});
+		const toggleSwitch = document.querySelector('.theme-switch input[type="checkbox"]');
+		const currentTheme = localStorage.getItem('theme');
+
+		if (currentTheme) {
+			document.documentElement.setAttribute('data-theme', currentTheme);
+			if (currentTheme === 'dark') {
+				toggleSwitch.checked = true;
+			}
+		}
+
+		function switchTheme(e) {
+			if (e.target.checked) {
+				document.documentElement.setAttribute('data-theme', 'dark');
+				localStorage.setItem('theme', 'dark');
+			} else {
+				document.documentElement.setAttribute('data-theme', 'light');
+				localStorage.setItem('theme', 'light');
+			}
+		}
+
+		toggleSwitch.addEventListener('change', switchTheme, false);
+
+		$(document).on('click.bs.dropdown.data-api', '.dropdown.keep-inside-clicks-open', function (e) {
+			e.stopPropagation();
+		});
+
+
+		$("#send_message").click(function(e) {
+			e.preventDefault();
+			let message = $('.write_msg').val();
+			let id = new Date();
+
+			$( ".msg_history" ).append( '<div class="outgoing_msg" id="'+id+'"> <div class="sent_msg d-inline-block bg-light rounded border"> <p>'+message+'</p> <span class="time_date">'+ new Date().toLocaleString() +'</span> </div> </div>' );
+
+			var objDiv = document.getElementById(id);
+			setTimeout(function(){
+				objDiv.scrollIntoView({block: "end"});
+			}, 100);
+		});
+
+    </script>
+
+  </body>
 </html>

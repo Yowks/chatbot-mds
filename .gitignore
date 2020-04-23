@@ -1,7 +1,8 @@
-dist/
 node_modules/
-.DS_store
-npm_debug.log
+.DS_Store
+dist/
+npm-debug.log
 yarn-error.log
 yarn.lock
 package-lock.json
+.env

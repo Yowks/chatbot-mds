@@ -1,8 +1,8 @@
 {
-  "name": "dev-env-js-default",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "name": "NajBot",
+  "version": "0.0.9",
+  "description": "NajBot",
+  "main": ".eslintrc.js",
   "scripts": {
     "start": "webpack-dev-server --mode development",
     "dist": "webpack --mode production --progress --profile",
@@ -10,16 +10,17 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Jekdesign/dev-env-js-default.git"
+    "url": "git+https://github.com/Yowks/chatbot-mds.git"
   },
+  "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Jekdesign/dev-env-js-default/issues"
+    "url": "https://github.com/Yowks/chatbot-mds/issues"
   },
-  "homepage": "https://github.com/Jekdesign/dev-env-js-default#readme",
+  "homepage": "https://github.com/Yowks/chatbot-mds#readme",
   "devDependencies": {
-    "@babel/core": "^7.6.4",
+    "@babel/core": "^7.7.2",
     "babel-loader": "^8.0.6",
     "css-loader": "^3.2.0",
     "dom-loader": "^1.0.4",
@@ -37,6 +38,7 @@
     "webpack-dev-server": "^3.9.0"
   },
   "dependencies": {
-    "babel-eslint": "^10.0.3"
+    "socket.io-client": "^2.3.0",
+    "ejs-webpack-loader": "^2.2.2"
   }
 }
