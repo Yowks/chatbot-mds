@@ -3,17 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<link href="https://fonts.googleapis.com/css2?family=Dosis:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" type="text/css" rel="stylesheet">
-    <title>Naj Bot </title>
+	<script src="https://kit.fontawesome.com/db1f0cda7b.js" crossorigin="anonymous"></script>    
+	<title>Naj Bot </title>
 </head>
 
 <body>
     <div class="d-flex" id="wrapper">
       	<!-- Sidebar -->
 		<div class="bg-black border-right" id="sidebar-wrapper">
-			<div class="sidebar-heading text-color border-bottom">Naj Bot</div>
+			<div class="sidebar-heading text-color "><h1>NAJ BOT</h1></div>
 			<div class="list-group list-group-flush" id="bot_list"> </div>
 		</div>
 		<!-- /#sidebar-wrapper -->
@@ -21,8 +22,8 @@
       	<!-- Page Content -->
       	<div id="page-content-wrapper" class="bg-black">
 
-			<nav class="navbar navbar-expand-lg navbar-light bg-black border-bottom">
-				<button class="btn btn-yellow" id="menu-toggle">listen bots</button>
+			<nav class="navbar navbar-expand-lg navbar-light bg-black ">
+				<button class="btn" id="menu-toggle"><i class="fas fa-ellipsis-h fa-sm"></i> Bots list</button>
 
 				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 					<span class="navbar-toggler-icon"></span>
@@ -31,14 +32,14 @@
 				<div class="collapse navbar-collapse" id="navbarSupportedContent">
 					<ul class="navbar-nav ml-auto mt-2 mt-lg-0">
 						<li class="nav-item dropdown keep-inside-clicks-open">
-							<a class="nav-link dropdown-toggle " href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Menu</a>
+							<a class="nav-link dropdown-toggle " href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-ellipsis-v"></i> Switch color</a>
 							<div class="dropdown-menu dropdown-menu-right pl-2 pt-3" aria-labelledby="navbarDropdown">
 								<div class="theme-switch-wrapper">
 									<label class="theme-switch mr-2" for="checkbox">
 										<input type="checkbox" id="checkbox" />
 										<div class="slider round"></div>
 									</label>
-									<span>Thème</span>
+									<span>Skin </span>
 								</div>
 							</div>
 						</li>
@@ -49,7 +50,6 @@
 			<div class="container-fluid pt-3">
 				<div class="mesgs">
 					<div class="text-center pb-5">
-						<span class="text-muted font-italic">first tchat</span>
 					</div>
 
 					<div class="msg_history"> </div>
@@ -57,7 +57,7 @@
 					<div class="type_msg border-top">
 						<form action="" method="POST">
 							<div class="input_msg_write">
-								<input type="text" class="write_msg" placeholder="Type a message" />
+								<input type="text" class="write_msg" placeholder="Write a message" />
 								<button class="msg_send_btn" id="send_message"><i class="fa fa-paper-plane-o" aria-hidden="true"></i></button>
 							</div>
 						</form>

@@ -16,7 +16,7 @@ const bots = Bots.get();
 // Get BotList
 for (let i = 0; i < bots.length; i += 1) {
   const elem = document.querySelector('#bot_list');
-  elem.innerHTML += `<div class="bot_list border-bottom"><a href=""><div class="bot_info"><div class="bot_img float-left"> <img src="${bots[i].image}" alt="Icon du bot"> </div><div class="bot_text float-left"><h6 class="text-color">${bots[i].name}<span class="bot_number float-right">${i + 1}</span></h6><p class="text-black-50">${bots[i].desc}</p></div></div></a></div>`;
+  elem.innerHTML += `<div class="bot_list "><a href=""><div class="bot_info"><div class="bot_img float-left"> <img src="${bots[i].image}" alt="Icon du bot"> </div><div class="bot_text float-left"><h6 class="text-color">${bots[i].name}<span class="bot_number float-right">${i + 1}</span></h6><p class="text-black-50" style="background: #ff6948; color:white !important; padding: 2%; border-radius:10px">${bots[i].desc}</p></div></div></a></div>`;
 }
 
 
